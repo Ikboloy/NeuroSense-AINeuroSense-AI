@@ -18,7 +18,7 @@ neurosense-evaluate = "neurosense_ai.cli:main"
 
 [project.optional-dependencies]
 experiments = ["opencv-python>=4.8,<5", "scipy>=1.10", "matplotlib>=3.7"]
-test = ["pytest>=7"]
+test = ["pytest>=7", "opencv-python-headless>=4.8,<5"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
