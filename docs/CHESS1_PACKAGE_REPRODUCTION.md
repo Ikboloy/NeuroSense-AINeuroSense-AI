@@ -22,6 +22,27 @@ The outputs are `confidence_metrics.csv` and `near_surface_metrics.csv`.
 
 **Important:** CONFIDENCE_AWARE is intentionally identical to STRICT_LR in the original script; no separate caution policy was evaluated.
 
+## Regression test (full dataset)
+
+The repository includes `tests/test_chess1_regression.py`, which compares every reported confidence and near-surface CSV metric with the archived results.
+
+Linux/macOS:
+
+```bash
+python -m pip install -e '.[test]'
+NEUROSENSE_CHESS1_DIR=dataset/middlebury/chess1 python -m pytest -q tests/test_chess1_regression.py
+```
+
+Windows PowerShell:
+
+```powershell
+python -m pip install -e '.[test]'
+$env:NEUROSENSE_CHESS1_DIR = "dataset/middlebury/chess1"
+python -m pytest -q tests/test_chess1_regression.py
+```
+
+Without `NEUROSENSE_CHESS1_DIR`, this full-data test is intentionally **skipped**, not passed. The CI's regular unit tests do not verify the numerical results without the Middlebury images.
+
 ## Verification status
 
 The original experiments were previously re-executed against the original Chess1 images, but this **newly refactored package implementation has not yet been run on the full Chess1 dataset**. Synthetic unit tests alone do not demonstrate numerical reproduction. Do not report this package as independently validated until the generated CSVs are compared field-by-field to the archived originals.
