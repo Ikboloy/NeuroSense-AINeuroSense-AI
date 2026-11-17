@@ -33,7 +33,7 @@ def test_consistency_signed_right():
 
 
 def test_consistency_out_of_bounds():
-    left = np.array([[3.0, 1.0]])
+    left = np.array([[3.0, 3.0]])
     right = np.array([[-1.0, -1.0]])
     assert not left_right_consistency(left, right).any()
 
