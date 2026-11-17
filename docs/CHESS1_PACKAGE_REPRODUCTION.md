@@ -48,3 +48,14 @@ Without `NEUROSENSE_CHESS1_DIR`, this full-data test is intentionally **skipped*
 The original experiments were previously re-executed against the original Chess1 images, but this **newly refactored package implementation has not yet been run on the full Chess1 dataset**. Synthetic unit tests alone do not demonstrate numerical reproduction. Do not report this package as independently validated until the generated CSVs are compared field-by-field to the archived originals.
 
 Dependencies and OpenCV implementation differences may affect pixel-level outputs.
+
+
+## Independent numerical verification — 2026-11-17
+
+The full Chess1 images and reference PFM in the author's original `NeuroSense_AI.zip` archive were processed in a clean, standalone Python calculation using the same StereoSGBM and LR-consistency operations as the package implementation. OpenCV version: **4.13.0**. Calibration: `fx=1758.23` pixels, `baseline=111.53` mm, `doffs=0`, `ndisp=290`; original image size: 1920 × 1080; processing scale: 0.5.
+
+**Result:** every value in all three Experiment 14 confidence rows and all three Experiment 16 near-surface rows matched the archived CSV files exactly (including rounding and `nan` cells). The matching counts and percentages are shown above and in `docs/CHESS1_REEXECUTION.md`.
+
+**Scope clarification:** this independent calculation follows the package implementation but did not import the installed package directly. The new opt-in regression test is provided to verify the actual installed package on machines with the Chess1 dataset. GitHub Actions cannot perform that full-data check because the dataset is not included. The ordinary unit-test CI passed on the latest commit before this documentation update.
+
+The original experiment and the package intentionally give identical `STRICT_LR` and `CONFIDENCE_AWARE` metrics. This does not demonstrate a distinct confidence-aware policy.
