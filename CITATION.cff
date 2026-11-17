@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use NeuroSense AI, please cite the software and associated preprint."
+title: "NeuroSense AI: Offline Stereo Depth and Confidence Analysis Utilities"
+type: software
+authors:
+  - family-names: Sobirova
+    given-names: Ikboloy Ikrom Kizi
+repository-code: "https://github.com/Ikboloy/NeuroSense-AINeuroSense-AI"
+version: "0.1.0"
+date-released: "2026-11-17"
+license: MIT
+references:
+  - type: article
+    title: "NeuroSense AI: Confidence-Aware Stereo Depth Estimation — An Offline Error Characterization for Assistive Perception"
+    authors:
+      - family-names: Sobirova
+        given-names: Ikboloy Ikrom Kizi
+    doi: 10.5281/zenodo.24299509
