@@ -8,7 +8,7 @@
 - [x] Draft paper.md and bibliography.
 - [x] Independently recalculate Chess1 image-to-metric values and compare with archived Experiment 14 and 16 CSVs.\n- [ ] Run the **installed package** against the full Chess1 dataset using the opt-in regression test; public CI skips this without the dataset.
 - [ ] Provide data acquisition, version, checksums, and executable experiment configuration.
-- [x] Provide a Chess1 image-to-metric command-line pipeline and Motorcycle metric-evaluation CLI.\n- [ ] Package the original full multi-scene disparity and 3D workflows.
+- [x] Provide a Chess1 image-to-metric command-line pipeline and Motorcycle metric-evaluation CLI.\n- [x] Extract calibrated 3D point-cloud geometry and PLY writer into tested functions.\n- [ ] Verify point cloud against the archived Motorcycle PLY output and integrate remaining original experiment scripts.\n- [ ] Package the original full multi-scene disparity workflows.
 - [ ] Add reliable tests covering actual research paths and numerical edge cases.
 - [ ] Provide demonstrations, example outputs, API/user documentation, and citation metadata.
 - [ ] Establish sustained public development history and evidence of research use.
