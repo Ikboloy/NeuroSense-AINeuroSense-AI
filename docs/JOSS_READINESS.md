@@ -1,14 +1,14 @@
 # JOSS readiness checklist
 
-**Current status: not yet ready to submit.** This repository includes a minimal research utility library and synthetic tests.
+**Current status: not yet ready to submit.** This repository includes an installable research library, a Chess1 command-line pipeline, synthetic tests, and an optional full-dataset regression test. Independent Chess1 image-to-metric recalculation matches archived CSVs, but direct package-level full-data regression is still pending.
 
 - [x] Public source repository with a permissive license.
 - [x] Preliminary installable Python package.
 - [x] Preliminary unit tests and GitHub Actions configuration.
 - [x] Draft paper.md and bibliography.
-- [ ] Reproduce independently reported Middlebury research metrics from this package.
+- [x] Independently recalculate Chess1 image-to-metric values and compare with archived Experiment 14 and 16 CSVs.\n- [ ] Run the **installed package** against the full Chess1 dataset using the opt-in regression test; public CI skips this without the dataset.
 - [ ] Provide data acquisition, version, checksums, and executable experiment configuration.
-- [ ] Package full disparity and 3D analysis workflows with a reproducible command-line interface.
+- [x] Provide a Chess1 image-to-metric command-line pipeline and Motorcycle metric-evaluation CLI.\n- [ ] Package the original full multi-scene disparity and 3D workflows.
 - [ ] Add reliable tests covering actual research paths and numerical edge cases.
 - [ ] Provide demonstrations, example outputs, API/user documentation, and citation metadata.
 - [ ] Establish sustained public development history and evidence of research use.
