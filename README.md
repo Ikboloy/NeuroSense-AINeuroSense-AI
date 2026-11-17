@@ -15,7 +15,15 @@ python -m pip install -e '.[experiments,test]'
 python -m pytest -q
 ```
 
-The reusable Python library contains preliminary utilities for disparity-to-depth conversion, signed left–right disparity consistency, common-valid disparity error and near-surface metrics. Full original Middlebury experiments are not yet integrated or reproduced here.
+The reusable Python library contains preliminary utilities for disparity-to-depth conversion, signed left–right disparity consistency, common-valid disparity error and near-surface metrics. The library now includes reusable Chess1 confidence and near-surface evaluation and Motorcycle disparity-to-depth metrics. The original Chess1 image-to-metric calculations have been independently recomputed and match the archived CSV results; direct full-dataset regression of the installed package remains an opt-in local test. See [Chess1 reproduction instructions](docs/CHESS1_PACKAGE_REPRODUCTION.md).
+
+## Reproduce Chess1
+
+```bash
+python -m neurosense_ai.chess1_cli --scene dataset/middlebury/chess1 --output results/chess1
+```
+
+To compare the installed package against the archived metrics, set `NEUROSENSE_CHESS1_DIR` to the Chess1 dataset directory and run `python -m pytest -q tests/test_chess1_regression.py`. Without the dataset this regression test is skipped. See [detailed instructions](docs/CHESS1_PACKAGE_REPRODUCTION.md).
 
 ## Data and safety
 
