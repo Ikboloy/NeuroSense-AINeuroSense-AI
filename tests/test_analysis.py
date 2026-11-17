@@ -29,7 +29,13 @@ def test_depth_bad_calibration():
 def test_consistency_signed_right():
     left = np.array([[0.0, 1.0, 2.0]])
     right = np.array([[-1.0, 0.0, 0.0]])
-    assert np.array_equal(left_right_consistency(left, right), [[False, True, False]])
+    assert np.array_equal(left_right_consistency(left, right), [[False, True, True]])
+
+
+def test_consistency_out_of_bounds():
+    left = np.array([[3.0, 1.0]])
+    right = np.array([[-1.0, -1.0]])
+    assert not left_right_consistency(left, right).any()
 
 
 def test_consistency_shape():
