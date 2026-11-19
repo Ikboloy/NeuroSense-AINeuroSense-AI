@@ -6,6 +6,8 @@ NeuroSense AI explores classical stereo matching, left–right consistency, conf
 
 **Research preprint:** Sobirova Ikboloy Ikrom Kizi (2026), *NeuroSense AI: Confidence-Aware Stereo Depth Estimation — An Offline Error Characterization for Assistive Perception*. Zenodo: https://doi.org/10.5281/zenodo.24299509
 
+[Three-scene texture experiment: images, error, coverage and runtime](experiments/texture-diagnostic/README.md)
+
 ## Installation
 
 Requires Python 3.10 or newer.
