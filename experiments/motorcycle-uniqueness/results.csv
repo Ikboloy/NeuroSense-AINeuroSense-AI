@@ -1,0 +1,9 @@
+scene,width,height,min_gap,eligible,kept,coverage_pct,mae_downsampled_px
+Motorcycle-imperfect,741,497,LR,289359,207258,71.63,2.949
+Motorcycle-imperfect,741,497,0,289359,201646,69.69,2.826
+Motorcycle-imperfect,741,497,1,289359,103518,35.77,1.355
+Motorcycle-imperfect,741,497,3,289359,60062,20.76,1.187
+Motorcycle-perfect,741,500,LR,293104,216216,73.77,2.638
+Motorcycle-perfect,741,500,0,293104,210497,71.82,2.525
+Motorcycle-perfect,741,500,1,293104,110884,37.83,1.217
+Motorcycle-perfect,741,500,3,293104,65162,22.23,1.112
