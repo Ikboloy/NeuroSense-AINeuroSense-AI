@@ -1,0 +1,7 @@
+scene,filter,kept,evaluated,coverage_pct,retained_MAE_px
+Random texture,LR,13440,13440,100.0,0.0
+Random texture,LR + unique,13440,13440,100.0,0.0
+Blank center,LR,8526,13440,63.44,0.0317
+Blank center,LR + unique,8472,13440,63.04,0.0
+Repeated stripes,LR,13440,13440,100.0,4.0
+Repeated stripes,LR + unique,0,13440,0.0,NA
