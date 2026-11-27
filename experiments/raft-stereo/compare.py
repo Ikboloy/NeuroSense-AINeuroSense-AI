@@ -12,6 +12,19 @@ import cv2
 import numpy as np
 
 
+def read_middlebury_disparity(path):
+    """Read Middlebury pixel disparities; magnitude of PFM scale is not a disparity multiplier."""
+    with path.open("rb") as stream:
+        if stream.readline().strip() != b"Pf":
+            raise ValueError("Expected grayscale PFM")
+        w, h = map(int, stream.readline().split())
+        scale = float(stream.readline())
+        if w <= 0 or h <= 0 or not np.isfinite(scale) or scale == 0:
+            raise ValueError("Invalid PFM header")
+        data = np.fromfile(stream, dtype="<f4" if scale < 0 else ">f4")
+        return np.flipud(data.reshape(h, w)).copy()
+
+
 def compare(scene, flow_path, out):
     left, right = [cv2.imread(str(scene / name), cv2.IMREAD_GRAYSCALE)
                    for name in ("im0.png", "im1.png")]
@@ -31,7 +44,7 @@ def compare(scene, flow_path, out):
     masks = {k: np.isfinite(v) & (v >= 0) for k, v in maps.items()}
     stats["coverage_fraction"] = {k: float(m.mean()) for k, m in masks.items()}
     if (scene / "disp0.pfm").exists():
-        gt = cv2.imread(str(scene / "disp0.pfm"), cv2.IMREAD_UNCHANGED)
+        gt = read_middlebury_disparity(scene / "disp0.pfm")
         if gt is None or gt.shape != left.shape:
             raise ValueError("Invalid ground truth")
         common = masks["sgbm"] & masks["raft"] & np.isfinite(gt) & (gt >= 0)
